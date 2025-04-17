@@ -1,0 +1,53 @@
+Основной код для расчёта площади правильного шестиугольника
+Файл: HexagonCalculator.cs
+
+csharp
+Копировать
+Редактировать
+using System;
+
+public class HexagonCalculator
+{
+    // Метод для вычисления площади правильного шестиугольника
+    public static double CalculateArea(double side)
+    {
+        if (side <= 0)
+            throw new ArgumentException("Сторона должна быть положительным числом.");
+        
+        return (3 * Math.Sqrt(3) / 2) * side * side;
+    }
+}
+✅ 2. Юнит-тесты с использованием MSTest
+Теперь создадим файл с тестами, используя MSTest.
+
+Файл: HexagonCalculatorTests.cs
+
+csharp
+Копировать
+Редактировать
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+
+[TestClass]
+public class HexagonCalculatorTests
+{
+    [TestMethod]
+    public void CalculateArea_WithValidInput_ReturnsCorrectArea()
+    {
+        double side = 2;
+        double expected = (3 * Math.Sqrt(3) / 2) * side * side;
+
+        double actual = HexagonCalculator.CalculateArea(side);
+
+        Assert.AreEqual(expected, actual, 0.0001); // Сравнение с точностью до 4 знаков после запятой
+    }
+
+    [TestMethod]
+    [DataRow(0)]
+    [DataRow(-1)]
+    [DataRow(-100)]
+    public void CalculateArea_WithNonPositiveInput_ThrowsArgumentException(double invalidSide)
+    {
+        Assert.ThrowsException<ArgumentException>(() => HexagonCalculator.CalculateArea(invalidSide));
+    }
+}
