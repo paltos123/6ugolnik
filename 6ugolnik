@@ -1,9 +1,5 @@
 Основной код для расчёта площади правильного шестиугольника
-Файл: HexagonCalculator.cs
 
-csharp
-Копировать
-Редактировать
 using System;
 
 public class HexagonCalculator
@@ -20,11 +16,6 @@ public class HexagonCalculator
 ✅ 2. Юнит-тесты с использованием MSTest
 Теперь создадим файл с тестами, используя MSTest.
 
-Файл: HexagonCalculatorTests.cs
-
-csharp
-Копировать
-Редактировать
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
